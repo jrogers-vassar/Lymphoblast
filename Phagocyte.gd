@@ -26,7 +26,7 @@ func _physics_process(_delta):
 		
 
 		if global_position.distance_to(target.global_position) < 5 and !engulfing:
-			var list_of_enemies = eating_area.get_overlapping_bodies()
+			var _list_of_enemies = eating_area.get_overlapping_bodies()
 			emit_signal("eating", target)
 			engulfing = true
 	else:
@@ -45,5 +45,5 @@ func _choose_random_point():
 	var y = rand_range(-1400, 1400)
 	random_point = Vector2(x, y)
 
-func _on_Hitbox_body_entered(body):
+func _on_Hitbox_body_entered(_body):
 	pass

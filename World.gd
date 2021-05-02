@@ -70,11 +70,6 @@ func _input(event):
 	if event is InputEventKey:
 		if event.pressed and event.scancode == KEY_ESCAPE:
 			get_tree().quit()
-		if event.pressed and event.scancode == KEY_ENTER:
-			var c = covid.instance()
-			c.global_position = get_global_mouse_position()
-			add_child(c)
-			c.target = $TargetCell
 
 func _assign_Phagocyte():
 	var shortest = null
@@ -105,6 +100,7 @@ func _on_Covid_Died(body):
 	covids_list.erase(body)
 	enemies_defeated += 1
 	if enemies_defeated == enemies_total:
+		hud.animationplayer.play("GoodJobFadeIn")
 		wave_number += 1
 		enemies_defeated = 0
 # warning-ignore:narrowing_conversion
@@ -179,6 +175,7 @@ func _on_Cell_Died(body):
 		$GameOverTimer.start()
 	for cov in covids_list:
 		if cov.target == body:
+# warning-ignore:standalone_expression
 			cov.target == null
 		if cov.target == null:
 			cov.target = _pick_random_cell()
@@ -187,4 +184,5 @@ func _on_Cell_Died(body):
 
 
 func _on_GameOverTimer_timeout():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://MainMenu.tscn")
