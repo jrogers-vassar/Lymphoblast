@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://title_creditcard.png" type="Texture" id=1]
+[ext_resource path="res://hacker_font_large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://hacker_front.tres" type="DynamicFont" id=3]
+[ext_resource path="res://MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://anon.tres" type="DynamicFont" id=5]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 608.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="."]
+modulate = Color( 0.886275, 0.862745, 0.862745, 1 )
+margin_left = 688.0
+margin_top = 264.0
+margin_right = 876.0
+margin_bottom = 314.0
+custom_fonts/font = ExtResource( 2 )
+text = "play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoVaccineButton" type="Button" parent="."]
+visible = false
+modulate = Color( 0.886275, 0.862745, 0.862745, 1 )
+margin_left = 824.0
+margin_top = 424.0
+margin_right = 1012.0
+margin_bottom = 474.0
+custom_fonts/font = ExtResource( 2 )
+text = "no way"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VaccineButton" type="Button" parent="."]
+visible = false
+modulate = Color( 0.886275, 0.862745, 0.862745, 1 )
+margin_left = 568.0
+margin_top = 424.0
+margin_right = 772.0
+margin_bottom = 474.0
+custom_fonts/font = ExtResource( 2 )
+text = "yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsButton" type="Button" parent="."]
+modulate = Color( 0.886275, 0.862745, 0.862745, 1 )
+margin_left = 688.0
+margin_top = 360.0
+margin_right = 876.0
+margin_bottom = 410.0
+custom_fonts/font = ExtResource( 2 )
+text = "credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+visible = false
+modulate = Color( 0.886275, 0.862745, 0.862745, 1 )
+margin_left = 696.0
+margin_top = 264.0
+margin_right = 872.0
+margin_bottom = 314.0
+custom_fonts/font = ExtResource( 2 )
+text = "back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="."]
+visible = false
+margin_left = 608.0
+margin_top = 368.0
+margin_right = 967.0
+margin_bottom = 530.0
+custom_fonts/font = ExtResource( 3 )
+text = "Coding by Jack rogers
+
+art by mara russell
+
+griffin trayner also helped"
+align = 1
+valign = 1
+
+[node name="VaccineQuestion" type="Label" parent="."]
+visible = false
+margin_left = 608.0
+margin_top = 240.0
+margin_right = 984.0
+margin_bottom = 368.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+valign = 1
+autowrap = true
+
+[node name="TextTimer" type="Timer" parent="."]
+wait_time = 0.1
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="NoVaccineButton" to="." method="_on_NoVaccineButton_pressed"]
+[connection signal="pressed" from="VaccineButton" to="." method="_on_VaccineButton_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="timeout" from="TextTimer" to="." method="_on_TextTimer_timeout"]

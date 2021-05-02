@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://PlayerCell.gd" type="Script" id=1]
+[ext_resource path="res://lymphocyte.png" type="Texture" id=2]
+[ext_resource path="res://Antibody.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 262.984
+height = 0.0
+
+[node name="PlayerCell" type="KinematicBody2D"]
+scale = Vector2( 0.2, 0.2 )
+collision_mask = 0
+script = ExtResource( 1 )
+antibody = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.560784 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="ShotCooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ShotPosition" type="Position2D" parent="."]
+position = Vector2( 25, 0 )
+[connection signal="timeout" from="ShotCooldown" to="." method="_on_ShotCooldown_timeout"]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Cutscene.gd" type="Script" id=1]
+[ext_resource path="res://CUTSCENE1.png" type="Texture" id=2]
+[ext_resource path="res://anon.tres" type="DynamicFont" id=3]
+
+[node name="Cutscene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = 248.0
+margin_top = 456.0
+margin_right = 784.0
+margin_bottom = 560.0
+color = Color( 0.0901961, 0.0823529, 0.0823529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -264.0
+margin_top = -136.0
+margin_right = 272.0
+margin_bottom = -40.0
+custom_fonts/font = ExtResource( 3 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="ClickCooldown" to="." method="_on_ClickCooldown_timeout"]

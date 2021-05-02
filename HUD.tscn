@@ -1,0 +1,230 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://hacker_front.tres" type="DynamicFont" id=1]
+[ext_resource path="res://HUD.gd" type="Script" id=2]
+[ext_resource path="res://antibody.png" type="Texture" id=3]
+[ext_resource path="res://COVID.png" type="Texture" id=4]
+[ext_resource path="res://hacker_font_large.tres" type="DynamicFont" id=5]
+[ext_resource path="res://endocrine cell.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Complete"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AcidCounter:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 7, 7, 7, 1 ), Color( 1, 1, 1, 1 ), Color( 7, 7, 7, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeIn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameOverLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="HUD" type="CanvasLayer"]
+scale = Vector2( 0.75, 0.75 )
+transform = Transform2D( 0.75, 0, 0, 0.75, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color( 0, 0, 0, 0.388235 )
+margin_left = 46.0
+margin_top = 288.0
+margin_right = 128.0
+margin_bottom = 587.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health1" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.623529 )
+margin_left = 65.0
+margin_top = 319.667
+margin_right = 108.0
+margin_bottom = 372.667
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health2" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.623529 )
+margin_left = 64.0
+margin_top = 384.0
+margin_right = 107.0
+margin_bottom = 437.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Health3" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+margin_left = 64.0
+margin_top = 448.0
+margin_right = 107.0
+margin_bottom = 501.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Health4" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.623529 )
+margin_left = 64.0001
+margin_top = 512.0
+margin_right = 107.0
+margin_bottom = 565.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0, 0, 0, 0.388235 )
+margin_left = 45.6472
+margin_top = 37.9015
+margin_right = 293.647
+margin_bottom = 285.902
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaveLabel" type="Label" parent="."]
+margin_left = 48.2882
+margin_top = 66.4148
+margin_right = 189.288
+margin_bottom = 96.4148
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.113725, 0.929412, 0.141176, 1 )
+text = "WAVE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyLabel" type="Label" parent="."]
+margin_left = 130.17
+margin_top = 163.856
+margin_right = 260.17
+margin_bottom = 193.856
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.113725, 0.929412, 0.141176, 1 )
+text = "0  i  24"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AmmoLabel" type="Label" parent="."]
+margin_left = 135.052
+margin_top = 117.887
+margin_right = 207.052
+margin_bottom = 147.887
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.113725, 0.929412, 0.141176, 1 )
+text = "50"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 82.7446
+margin_top = 156.931
+margin_right = 130.745
+margin_bottom = 196.931
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 85.5283
+margin_top = 107.13
+margin_right = 128.528
+margin_bottom = 147.13
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CountdownLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 17.3163
+margin_top = 136.673
+margin_right = 324.316
+margin_bottom = 317.673
+custom_fonts/font = ExtResource( 5 )
+text = "Covid encounter occuring in
+"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverLabel" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.165354
+anchor_top = 1.25398
+anchor_right = 1.16535
+anchor_bottom = 1.25398
+margin_top = -135.0
+custom_fonts/font = ExtResource( 5 )
+text = "GAME over"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AcidCounter" type="TextureRect" parent="."]
+modulate = Color( 7, 7, 7, 1 )
+margin_left = 121.17
+margin_top = 210.856
+margin_right = 207.17
+margin_bottom = 276.856
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Complete = SubResource( 1 )
+anims/FadeIn = SubResource( 2 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
