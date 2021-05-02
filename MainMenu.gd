@@ -52,9 +52,11 @@ func _on_TextTimer_timeout():
 
 
 func _on_VaccineButton_pressed():
-	get_tree().change_scene("res://Cutscene.tscn")
 	God.vaccine = true
+	get_tree().change_scene("res://Cutscene.tscn")
+	
 
 
 func _on_NoVaccineButton_pressed():
+	God.vaccine = false
 	get_tree().change_scene("res://World.tscn")
